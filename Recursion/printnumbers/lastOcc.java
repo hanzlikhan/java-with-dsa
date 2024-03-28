@@ -12,7 +12,7 @@ public class lastOcc {
 
     public static void main(String[] args) {
         int arr[] = {3,8,2,9,8,7};
-        System.out.println(lstOc(arr, 8, 0));
+        System.out.println(lstOc(arr, 1, 0));
     }
     
 }
