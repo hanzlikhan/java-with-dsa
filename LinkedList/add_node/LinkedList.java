@@ -9,11 +9,13 @@ public class LinkedList{
     }
     public static Node head;
     public static Node tail;
+    public static int size;    // by default size = 1 
 
     // addfirst
     public void addFirst(int data){
         // step1 => create new Node
         Node newNode = new Node(data);    // like create object
+        size++;
         if(head==null){
             head = tail = newNode;
             return;
@@ -28,6 +30,7 @@ public class LinkedList{
 
     public void addlast(int data){
         Node newNode = new Node(data);
+        size++;
         if(head == null) {
             head = tail = newNode;
         }
@@ -58,6 +61,7 @@ public class LinkedList{
             return;
         }
         Node newNode = new Node(data);
+        size++;
         Node temp = head;
         int i = 0;
         while (i<idx-1) {
@@ -66,6 +70,81 @@ public class LinkedList{
         }
         newNode.next = temp.next;
         temp.next = newNode;
+    }
+
+    // remove first
+
+    public int removefirst(){
+        if(size==0){
+            System.out.println( "The linked list is already empty" );
+            return Integer.MAX_VALUE;
+        }else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        int val = head.data;
+        head  = head.next;
+        size--;
+        return val;
+    }
+
+    // remove last
+
+    public int removelast() {
+        if(size==0){
+            System.out.println("The Linked List is empty");
+            return Integer.MIN_VALUE;
+        }else if(size==1){
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        Node prev = head;
+        for(int i=0;i<size-2;i++){
+            prev= prev.next;   // tail
+        }
+        int val = prev.next.data;  //tail.data
+        prev.next= null;
+        tail = prev;
+        size--;
+        return val;
+        
+    }
+
+    // search key by ietrative method 
+
+    public int itrative(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp !=null ) {
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+            }
+            return -1;
+       
+    }
+    public int helper(Node head,int key){
+        // base case
+        if(head==null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx== -1){
+            return -1;
+        }
+        return idx+1;
+    }
+    public int recursive(int key){
+        return helper(head,key);
     }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -79,5 +158,17 @@ public class LinkedList{
         ll.addlast(4);
         ll.addmid(2, 9);
         ll.print();
+
+        System.out.println(ll.size);
+
+        ll.removefirst();
+        ll.print();
+
+        ll.removelast();
+        ll.print();
+        System.out.println(ll.size);
+        // System.out.println(ll.itrative(9));
+        System.out.println(ll.recursive(9));
+        System.out.println(ll.recursive(10));
     }
 }
