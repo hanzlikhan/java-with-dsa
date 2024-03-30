@@ -143,8 +143,23 @@ public class LinkedList{
         }
         return idx+1;
     }
+    
     public int recursive(int key){
         return helper(head,key);
+    }
+
+    //  reverse linked list
+    public void reverse() {
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;   // it will reverse the node
+            prev = curr;
+            curr = next;
+        }
+        prev = head;
     }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -170,5 +185,9 @@ public class LinkedList{
         // System.out.println(ll.itrative(9));
         System.out.println(ll.recursive(9));
         System.out.println(ll.recursive(10));
+
+        ll.reverse();
+        System.out.println("Reversed List");
+        ll.print();
     }
 }
