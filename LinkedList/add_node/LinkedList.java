@@ -186,6 +186,54 @@ public class LinkedList{
         prev.next=prev.next.next;
         return;
     }
+
+    // Check iff LL is palindrome
+    // 1- find midNode
+    // 2- 2nd half reverse
+    // 3- check if first half == 2nd half 
+
+    // find mid node 
+    // /slow fast tecnique
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    // check palindrome function
+    public boolean checkpalindrome(){
+        // base case:
+        if(head == null || head.next == null ){
+            return true;
+        }
+        // step 1
+        Node  midNode = findMid(head);
+        // step 2
+        Node prev = null;
+        Node curr = midNode; // for start here not a head like a reverse a function
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right  = prev;
+        Node left  = head;
+
+        // step 3
+        while (right != null) {
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.print();       
@@ -198,24 +246,25 @@ public class LinkedList{
         ll.addlast(4);
         ll.addmid(2, 9);
         ll.print();
+        System.out.println(ll.checkpalindrome());
+        // System.out.println(ll.size);
 
-        System.out.println(ll.size);
+        // ll.removefirst();
+        // ll.print();
 
-        ll.removefirst();
-        ll.print();
+        // ll.removelast();
+        // ll.print();
+        // System.out.println(ll.size);
+        // // System.out.println(ll.itrative(9));
+        // System.out.println(ll.recursive(9));
+        // System.out.println(ll.recursive(10));
 
-        ll.removelast();
-        ll.print();
-        System.out.println(ll.size);
-        // System.out.println(ll.itrative(9));
-        System.out.println(ll.recursive(9));
-        System.out.println(ll.recursive(10));
+        // ll.reverse();
+        // System.out.println("Reversed List");
+        // ll.print();
 
-        ll.reverse();
-        System.out.println("Reversed List");
-        ll.print();
-
-        ll.deleteNthFromLast(2);
-        ll.print();
+        // ll.deleteNthFromLast(2);
+        // ll.print();
+      
     }
 }
