@@ -373,9 +373,12 @@ public class LinkedList{
             // for update
             left = nextL;
             right = nextR;
-
         }
     }
+
+    // Double linked list
+
+    
     public static void main(String[] args) {
         // head = new Node(1);
         // Node temp = new Node(2);
@@ -428,7 +431,7 @@ public class LinkedList{
         ll.print();
         // ll.head = ll.mergSort(ll.head);
         // ll.print();
-        ll.zigzag();
+        // ll.zigzag();
         ll.print();
 
         
