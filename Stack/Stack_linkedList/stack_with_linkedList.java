@@ -45,7 +45,7 @@ public class stack_with_linkedList {
     // }
     public static void main(String[] args) {
         // Stack s = new Stack();
-        Stack<Integer> s = new Stack<>();
+        Stack<Integer> s = new Stack<>();    // java collection framework
         s.push(1);
         s.push(2);
         s.push(3);
