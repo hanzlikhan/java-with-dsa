@@ -58,6 +58,31 @@ public class DoubleLL{
         return val;
     }
 
+    // removelast
+
+    public  int removeLast(){
+        if (head == null) {
+            System.out.println("empty LinkedList");
+            return Integer.MIN_VALUE;
+        }
+        if(size==1){
+            int val = head.data;
+            head = tail = null;
+            size--;
+            return val;
+        }
+        Node prev = head;
+        for(int i=0;i<size-3;i++){
+            prev = prev.next;
+        }
+        int val = prev.next.data;  // 
+        prev.next = prev;
+        tail = prev;
+        size--;
+        return val;
+
+        }
+
     public void print(){
         Node temp = head;
         while (temp != null) {
@@ -78,7 +103,8 @@ public class DoubleLL{
         System.out.println(dll.size);
         dll.removeFirst();
         dll.print();
-        System.out.println(dll.size);
-
+        // System.out.println(dll.size);
+        // dll.removeLast();
+        // dll.print();
     }
 }
