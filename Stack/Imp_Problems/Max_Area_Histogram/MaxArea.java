@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class MaxArea{
-    public static void  maxArea(int[] height) {
+    public static void  maxArea(int height[]) {
         int maxar = 0;
         int nsr[] =  new int[height.length];
         int nsl[] =  new int[height.length];
@@ -20,7 +20,7 @@ public class MaxArea{
         }
         // Finding the number of smaller elements on Right side
         s = new Stack<>();
-        for(int i = height.length;i>=0;i--){
+        for(int i = height.length-1;i>=0;i--){
             while (!s.isEmpty() && height[s.peek()] >= height[i]) {
                 s.pop();
             }
@@ -41,7 +41,7 @@ public class MaxArea{
         }
         System.out.println(maxar);
     }
-    public static void mint(String[] args) {
+    public static void main(String[] args) {
         int height[] = {2,1,5,6,2,3};
         maxArea(height);
     }
