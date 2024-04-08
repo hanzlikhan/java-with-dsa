@@ -65,13 +65,14 @@ public class heightofBin{
         root.right = new Node(3);
         root.left.left = new Node(4);
         root.left.right = new Node(5);
-        root.right.left = new Node(5);
-        root.right.right = new Node(5);
-        System.out.println(height(root));
-        System.out.println(countNode(root));
-        System.out.println(sum(root));
-        System.out.println(diameter(root));
-        System.out.println(diameter2(root));
-
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+    
+        Node subRoot = new Node(2);
+        subRoot.left = new Node(4);
+        subRoot.right = new Node(5); // Corrected this line
+        boolean isSubtree = isSubroot(root, subRoot);
+        System.out.println("Is subRoot a subtree of root? " + isSubtree);
     }
+    
 }
