@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class LinkedList{
     public static class Node{
         int data;
@@ -422,7 +424,18 @@ public class LinkedList{
         // ll.deleteNthFromLast(2);
         // ll.print();
         
-        
+        LinkedList ll = new LinkedList();
+        ll.addlast(1);
+        ll.addlast(2);
+        ll.addlast(3);
+        ll.addlast(4);
+        ll.addlast(5);
+        ll.addlast(6);
+        ll.print();
+        // ll.head = ll.mergSort(ll.head);
+        // ll.print();
+        // ll.zigzag();
+        ll.print();
 
     }
 }
