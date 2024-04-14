@@ -29,6 +29,20 @@ public class subTree {
         return isIdentical(n1.left, n2.left) && isIdentical(n1.right, n2.right);
     }
 
+    // kth level of a tree
+    public static void klevel(Node root,int level,int k){
+        if(root == null){
+            return;
+        }
+        if(level == k ){
+            System.out.println(root.data);
+            return;  // we dont need to go to subtree if we find the kth level
+        }
+        klevel(root.left, level+1, k);
+        klevel(root.right, level+1, k);
+    }
+
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -38,10 +52,13 @@ public class subTree {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        Node subRoot = new Node(2);
-        subRoot.left = new Node(4);
-        subRoot.right = new Node(5);
-        boolean isSubtree = isSubroot(root, subRoot);
-        System.out.println("Is subRoot a subtree of root? " + isSubtree);
+        int k = 2;
+        klevel(root, 1, k);
+
+        // Node subRoot = new Node(2);
+        // subRoot.left = new Node(4);
+        // subRoot.right = new Node(5);
+        // boolean isSubtree = isSubroot(root, subRoot);
+        // System.out.println("Is subRoot a subtree of root? " + isSubtree);
     }
 }
