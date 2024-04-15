@@ -45,7 +45,7 @@ public class subTree {
     }
 
     // Lowest commmon ancestor of a tree
-    public static Node lca(node root,int n1,int n2){
+    public static Node lca(Node root,int n1,int n2){
         ArrayList<Node> path1 = new ArrayList<>();
         ArrayList<Node> path2 = new ArrayList<>();
         getpath(root,n1,path1);
