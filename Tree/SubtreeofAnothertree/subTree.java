@@ -90,8 +90,7 @@ public class subTree {
         // int k = 2;
         // klevel(root, 1, k);
 
-        int n1 = 4,n2 = 5;
-        System.out.println(lca(root, n1, n2).data);
+        
 
         // Node subRoot = new Node(2);
         // subRoot.left = new Node(4);
