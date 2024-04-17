@@ -100,6 +100,18 @@ public class subTree {
         return root;
     }
 
+    // distance between two nodes in a tree
+    public static int mainDist(Node root,int n1,int n2){
+        Node Lca = lca2(root, n1, n2);
+        int dis1 = lcaDist(Lca,n1);
+        int dis2 = lcaDist(Lca,n1);
+        return dis1 + dis2;
+    }
+    public static int lcaDist(Node root,int n){
+        if(root == null){
+            return -1;
+        }
+    }
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
