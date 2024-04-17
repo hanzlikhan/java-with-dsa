@@ -90,6 +90,14 @@ public class subTree {
         }
         Node leftlca = lca2(root.left,n1,n2);
         Node rightlca = lca2(root.right,n1,n2);
+
+        if(leftlca == null){
+            return root.right;
+        }
+        if(rightlca == null){
+            return root.left;
+        }
+        return root;
     }
 
     public static void main(String[] args) {
@@ -104,8 +112,8 @@ public class subTree {
         // int k = 2;
         // klevel(root, 1, k);
 
-        int n1 = 4,n2 = 5;
-        System.out.println(lca(root, n1, n2).data);
+        int n1 = 4,n2 = 7;
+        System.out.println(lca2(root, n1, n2).data);
 
         // Node subRoot = new Node(2);
         // subRoot.left = new Node(4);
