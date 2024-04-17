@@ -80,6 +80,18 @@ public class subTree {
         return false;
     }
 
+
+    // lowest common ancestor of a tree approach2 
+
+    public static Node lca2(Node root,int n1,int n2){
+        // base case 
+        if(root == null || root.data == n1 || root.data == n2){
+            return root;
+        }
+        Node leftlca = lca2(root.left,n1,n2);
+        Node rightlca = lca2(root.right,n1,n2);
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
