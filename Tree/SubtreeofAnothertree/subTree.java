@@ -101,7 +101,7 @@ public class subTree {
     }
 
     // distance between two nodes in a tree
-    public static int mainDist(Node root,int n1,int n2){
+    public static int minDist(Node root,int n1,int n2){
         Node Lca = lca2(root, n1, n2);
         int dis1 = lcaDist(Lca,n1);
         int dis2 = lcaDist(Lca,n1);
@@ -110,6 +110,19 @@ public class subTree {
     public static int lcaDist(Node root,int n){
         if(root == null){
             return -1;
+        }
+        if(root.data == n){
+            return 0;
+        }
+        int leftdis = lcaDist(root.left, n);
+        int rightdis = lcaDist(root.right, n);
+        if(leftdis == -1 && rightdis == -1){
+            return -1;
+        }
+        else if(leftdis == -1) {
+            return rightdis++;
+        }else{
+            return leftdis++;
         }
     }
     public static void main(String[] args) {
@@ -125,7 +138,7 @@ public class subTree {
         // klevel(root, 1, k);
 
         int n1 = 4,n2 = 7;
-        System.out.println(lca2(root, n1, n2).data);
+        System.out.println(minDist(root, n1, n2));
 
         // Node subRoot = new Node(2);
         // subRoot.left = new Node(4);
